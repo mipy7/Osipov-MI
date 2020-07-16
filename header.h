@@ -1,7 +1,7 @@
 /*
 header.h
 
-Задание 27.
+Р—Р°РґР°РЅРёРµ 27.
 */
 #pragma once
 
@@ -9,22 +9,22 @@ header.h
 
 using namespace std;
 
-// функция печати одномерного массива
+// С„СѓРЅРєС†РёСЏ РїРµС‡Р°С‚Рё РѕРґРЅРѕРјРµСЂРЅРѕРіРѕ РјР°СЃСЃРёРІР°
 void print(int* mas, int dim1);
 
-// сортировка(убывание)
+// СЃРѕСЂС‚РёСЂРѕРІРєР°(СѓР±С‹РІР°РЅРёРµ)
 int* bubble(int* arr, int size);
 
-// перевод задач на массив машин
+// РїРµСЂРµРІРѕРґ Р·Р°РґР°С‡ РЅР° РјР°СЃСЃРёРІ РјР°С€РёРЅ
 void decode(int* mas, int* masTask, int*& narr, int dim, int dim2);
 
-// копирование массивов
+// РєРѕРїРёСЂРѕРІР°РЅРёРµ РјР°СЃСЃРёРІРѕРІ
 void copy(int* from, int* to, int dim);
 
-// сравнение массивов(предполагаем что размерности массивов одинаоквые)
+// СЃСЂР°РІРЅРµРЅРёРµ РјР°СЃСЃРёРІРѕРІ(РїСЂРµРґРїРѕР»Р°РіР°РµРј С‡С‚Рѕ СЂР°Р·РјРµСЂРЅРѕСЃС‚Рё РјР°СЃСЃРёРІРѕРІ РѕРґРёРЅР°РѕРєРІС‹Рµ)
 bool equal(int* mas1, int* mas2, int size);
 
-// основная задача
+// РѕСЃРЅРѕРІРЅР°СЏ Р·Р°РґР°С‡Р°
 int* Task27(int* Task, int* Mash, int* fragmentation, int TaskSize, int MashSize);
 
 void printdecode(int* Code, int* Task, int*& Mash, int SizeTask, int SizeMash);
