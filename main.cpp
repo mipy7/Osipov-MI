@@ -9,7 +9,7 @@ main.cpp
 Оптимальным считается расписание, при котором максимальное время загруженности всех машин минимально.
 */
 
-#include <ctime>
+#include <chrono>
 #include "header.h"
 
 using namespace std;
@@ -17,7 +17,6 @@ using namespace std;
 int main() {
 	setlocale(LC_ALL, "Rus");
 	/* Тесты */
-
 	{ // Тест 1
 		int TaskSize = 7;
 		int MashSize = 3;
@@ -36,15 +35,15 @@ int main() {
 
 
 		// начало отсчета времени
-		clock_t start = clock();
+		auto startTime = chrono::high_resolution_clock::now();
 
 		int* best = Task27(Task, Mash, fragmentation, TaskSize, MashSize);
 
 		// конец отсчета времени
-		clock_t stop = clock();
+		auto finishTime = chrono::high_resolution_clock::now();
 
 		// количество секунд
-		int seconds = stop - start;
+		auto seconds = chrono::duration_cast<chrono::microseconds>(finishTime - startTime);
 
 
 		decode(best, Task, Mash, TaskSize, MashSize);
@@ -64,7 +63,7 @@ int main() {
 		if (equal(TestMash, Mash, MashSize)) cout << "Тест 1: пройден " ;
 		else cout << "Тест 1: Не пройден ";
 
-		cout << "(Время работы программы: " << seconds << ") " << endl;
+		cout << "(Время работы программы: " << seconds.count() << ") " << endl;
 
 		cout << endl;
 	}
@@ -86,15 +85,15 @@ int main() {
 		cout << "==================\n\n";
 
 		// начало отсчета времени
-		clock_t start = clock();
+		auto startTime = chrono::high_resolution_clock::now();
 
 		int* best = Task27(Task, Mash, fragmentation, TaskSize, MashSize);
 
 		// конец отсчета времени
-		clock_t stop = clock();
+		auto finishTime = chrono::high_resolution_clock::now();
 
 		// количество секунд
-		int seconds = stop - start;
+		auto seconds = chrono::duration_cast<chrono::microseconds>(finishTime - startTime);
 
 		decode(best, Task, Mash, TaskSize, MashSize);
 		Mash = bubble(Mash, MashSize);
@@ -113,7 +112,7 @@ int main() {
 		if (equal(TestMash, Mash, MashSize)) cout << "Тест 2: пройден";
 		else cout << "Тест 2: Не пройден";
 
-		cout << "(Время работы программы: " << seconds << ") " << endl;
+		cout << "(Время работы программы: " << seconds.count() << ") " << endl;
 
 		cout << endl;
 	}
@@ -135,15 +134,15 @@ int main() {
 		cout << "==================\n\n";
 
 		// начало отсчета времени
-		clock_t start = clock();
+		auto startTime = chrono::high_resolution_clock::now();
 
 		int* best = Task27(Task, Mash, fragmentation, TaskSize, MashSize);
 
 		// конец отсчета времени
-		clock_t stop = clock();
+		auto finishTime = chrono::high_resolution_clock::now();
 
 		// количество секунд
-		int seconds = stop - start;
+		auto seconds = chrono::duration_cast<chrono::microseconds>(finishTime - startTime);
 
 		decode(best, Task, Mash, TaskSize, MashSize);
 		Mash = bubble(Mash, MashSize);
@@ -162,7 +161,7 @@ int main() {
 		if (equal(TestMash, Mash, MashSize)) cout << "Тест 3: пройден";
 		else cout << "Тест 3: Не пройден";
 
-		cout << "(Время работы программы: " << seconds << ") " << endl;
+		cout << "(Время работы программы: " << seconds.count() << ") " << endl;
 	
 		cout << endl;
 	}
@@ -200,23 +199,23 @@ int main() {
 		Mash[i] = 0;
 
 	/* Программа */
-	// начало отсчета времени
-	clock_t start = clock();
+		// начало отсчета времени
+	auto startTime = chrono::high_resolution_clock::now();
 
 	int* best = Task27(Task, Mash, fragmentation, TaskSize, MashSize);
 
 	// конец отсчета времени
-	clock_t stop = clock();
+	auto finishTime = chrono::high_resolution_clock::now();
 
 	// количество секунд
-	int seconds = stop - start;
+	auto seconds = chrono::duration_cast<chrono::microseconds>(finishTime - startTime);
 
 
 	/* Вывод результата на экран */
 
 	cout << endl;
 	printdecode(best, Task, Mash, TaskSize, MashSize);
-	cout << "(Время работы программы: " << seconds << ") " << endl;
+	cout << "(Время работы программы: " << seconds.count() << ") " << endl;
 	cout << endl;
 
 	system("pause");
