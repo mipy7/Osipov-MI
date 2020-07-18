@@ -18,21 +18,19 @@ int main() {
 	setlocale(LC_ALL, "Rus");
 	/* Тесты */
 	{ // Тест 1
-		int TaskSize = 7;
+		int TaskSize = 1;
 		int MashSize = 3;
 
-		int* Task = new int[TaskSize] { 34, 8, 25, 9, 14, 30, 6 };
+		int* Task = new int[TaskSize] { 34 };
 		int* Mash = new int[MashSize] { 0, 0, 0 };
-		int* fragmentation = new int[TaskSize] { 0, 0, 0, 0, 0, 0, 0 };
+		int* fragmentation = new int[TaskSize] { 0 };
 
 		cout << "Тест 1" << endl;
 		cout << "Входные данные:" << endl;
-		cout << "Задачи:" << endl;
+		cout << "Задачи: ";
 		print(Task, TaskSize);
-		cout << "Машины:" << endl;
-		print(Mash, MashSize);
-		cout << "==================\n\n";
-
+		cout << "Кол-во машин:" << MashSize << endl;
+	
 
 		// начало отсчета времени
 		auto startTime = chrono::high_resolution_clock::now();
@@ -45,44 +43,31 @@ int main() {
 		// количество секунд
 		auto seconds = chrono::duration_cast<chrono::microseconds>(finishTime - startTime);
 
-
-		decode(best, Task, Mash, TaskSize, MashSize);
-		Mash = bubble(Mash, MashSize);
-		int* TestMash = new int[MashSize] { 44, 42, 40 };
+		int* TestMash = new int[MashSize] { 34, 0, 0 };
 
 		cout << "Программа вернула значения:" << endl;
-		cout << "Машины:" << endl;
-		print(Mash, MashSize);
+		printdecode(best, Task, Mash,TaskSize, MashSize);
+		Mash = bubble(Mash, MashSize);
 
-		cout << "\nПравильный ответ:" << endl;
-		print(TestMash, MashSize);
+
+		if (equal(TestMash, Mash, MashSize)) cout << "Тест 1: пройден " << endl;
+		else cout << "Тест 1: Не пройден " << endl;
 		cout << "==================\n\n";
-
-
-
-		if (equal(TestMash, Mash, MashSize)) cout << "Тест 1: пройден " ;
-		else cout << "Тест 1: Не пройден ";
-
-		cout << "(Время работы программы: " << seconds.count() << ") " << endl;
-
-		cout << endl;
 	}
 
 	{ // Тест 2
-		int TaskSize = 12;
-		int MashSize = 4;
+		int TaskSize = 3;
+		int MashSize = 3;
 
-		int* Task = new int[TaskSize] { 6, 3, 15, 7, 23, 30, 21, 4, 5, 32, 26, 13 };
-		int* Mash = new int[MashSize] { 0, 0, 0, 0 };
-		int* fragmentation = new int[TaskSize] { 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0  };
+		int* Task = new int[TaskSize] { 6, 3, 7};
+		int* Mash = new int[MashSize] { 0, 0, 0 };
+		int* fragmentation = new int[TaskSize] { 0, 0, 0};
 
 		cout << "Тест 2" << endl;
 		cout << "Входные данные:" << endl;
-		cout << "Задачи:" << endl;
+		cout << "Задачи: ";
 		print(Task, TaskSize);
-		cout << "Машины:" << endl;
-		print(Mash, MashSize);
-		cout << "==================\n\n";
+		cout << "Кол-во машин:" << MashSize << endl;
 
 		// начало отсчета времени
 		auto startTime = chrono::high_resolution_clock::now();
@@ -95,43 +80,33 @@ int main() {
 		// количество секунд
 		auto seconds = chrono::duration_cast<chrono::microseconds>(finishTime - startTime);
 
-		decode(best, Task, Mash, TaskSize, MashSize);
-		Mash = bubble(Mash, MashSize);
-		int* TestMash = new int[MashSize] { 47, 47, 46, 45 };
 
+		int* TestMash = new int[MashSize] { 7, 6, 3 };
 
 		cout << "Программа вернула значения:" << endl;
-		cout << "Машины:" << endl;
-		print(Mash, MashSize);
+		printdecode(best, Task, Mash, TaskSize, MashSize);
 
-		cout << "\nПравильный ответ:" << endl;
-		print(TestMash, MashSize);
+		Mash = bubble(Mash, MashSize);
+
+		if (equal(TestMash, Mash, MashSize)) cout << "Тест 2: пройден" << endl;
+		else cout << "Тест 2: Не пройден" << endl;
 		cout << "==================\n\n";
-
-
-		if (equal(TestMash, Mash, MashSize)) cout << "Тест 2: пройден";
-		else cout << "Тест 2: Не пройден";
-
-		cout << "(Время работы программы: " << seconds.count() << ") " << endl;
-
-		cout << endl;
 	}
 
 	{ // Тест 3
-		int TaskSize = 3;
-		int MashSize = 6;
+		int TaskSize = 5;
+		int MashSize = 3;
 
-		int* Task = new int[TaskSize] { 5, 20, 15};
-		int* Mash = new int[MashSize] { 0, 0, 0, 0, 0, 0 };
-		int* fragmentation = new int[TaskSize] { 0, 0, 0  };
+		int* Task = new int[TaskSize] { 5, 20, 15, 7, 12};
+		int* Mash = new int[MashSize] { 0, 0, 0 };
+		int* fragmentation = new int[TaskSize] { 0, 0, 0, 0, 0 };
 
 		cout << "Тест 3" << endl;
 		cout << "Входные данные:" << endl;
-		cout << "Задачи:" << endl;
+		cout << "Задачи: ";
 		print(Task, TaskSize);
-		cout << "Машины:" << endl;
-		print(Mash, MashSize);
-		cout << "==================\n\n";
+		cout << "Кол-во машин:" << MashSize << endl;
+
 
 		// начало отсчета времени
 		auto startTime = chrono::high_resolution_clock::now();
@@ -144,26 +119,17 @@ int main() {
 		// количество секунд
 		auto seconds = chrono::duration_cast<chrono::microseconds>(finishTime - startTime);
 
-		decode(best, Task, Mash, TaskSize, MashSize);
-		Mash = bubble(Mash, MashSize);
-		int* TestMash = new int[MashSize] { 20, 15, 5, 0, 0, 0 };
+		int* TestMash = new int[MashSize] { 20, 20, 19};
 
 
 		cout << "Программа вернула значения:" << endl;
-		cout << "Машины:" << endl;
-		print(Mash, MashSize);
+		printdecode(best, Task, Mash, TaskSize, MashSize);
 
-		cout << "\nПравильный ответ:" << endl;
-		print(TestMash, MashSize);
+		Mash = bubble(Mash, MashSize);
+
+		if (equal(TestMash, Mash, MashSize)) cout << "Тест 3: пройден" << endl;
+		else cout << "Тест 3: Не пройден" << endl;
 		cout << "==================\n\n";
-
-
-		if (equal(TestMash, Mash, MashSize)) cout << "Тест 3: пройден";
-		else cout << "Тест 3: Не пройден";
-
-		cout << "(Время работы программы: " << seconds.count() << ") " << endl;
-	
-		cout << endl;
 	}
 
 
