@@ -77,8 +77,10 @@ int* Task27(int* Task, int* Mash, int* fragmentation, int TaskSize, int MashSize
 		if (fragmentation[0] == MashSize)
 			for (int i = 0; i < TaskSize; ++i) {
 
-				if (fragmentation[TaskSize - 1] == MashSize)
+				if (fragmentation[TaskSize - 1] == MashSize) {
+					fragmentation[TaskSize - 1]--;
 					flag = 0;
+				}
 				else if (fragmentation[i] == MashSize) {
 					fragmentation[i] = 0;
 					fragmentation[i + 1] += 1;
